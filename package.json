@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint src/*.js",
     "prepush": "npm run lint",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha tests/**/*spec.js"
   },
   "repository": {
     "type": "git",
@@ -27,12 +27,14 @@
   },
   "homepage": "https://github.com/klasrak/js-tdd-course#readme",
   "devDependencies": {
+    "chai": "^4.2.0",
     "eslint": "^6.7.2",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "husky": "^3.1.0"
+    "husky": "^3.1.0",
+    "mocha": "^6.2.2"
   }
 }
