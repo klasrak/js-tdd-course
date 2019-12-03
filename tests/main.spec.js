@@ -1,31 +1,31 @@
 /* eslint-disable no-undef */
 describe('Main', function () {
-  describe('Method A', function () {
-    context('Case 1', function () {
-      it.skip('should happen blablabla', function () {
-        // resultado esperado | De fato o nosso teste.
-        // Entra de dados / Método sum(2,2)
-        // Espera retornar (4)=> true ! (3)=> false=> broken test
-        throw new Error('Just an error!')
-      })
-    })
-
-    context('Case 2', function () {
-      it('should happen blablabla', function () {
-        // resultado esperado | De fato o nosso teste.
-        // Entra de dados / Método sum(2,2)
-        // Espera retornar (4)=> true ! (3)=> false=> broken test
-        throw new Error('Another error')
-      })
-      it('should happen mimimi', function () {
-        // resultado esperado | De fato o nosso teste.
-        // Entra de dados / Método sum(2,2)
-        // Espera retornar (4)=> true ! (3)=> false=> broken test
-      })
-    })
+  // Hooks
+  // Before roda apenas uma vez antes do bloco
+  before(function () {
+    console.log('before')
   })
 
-  describe('Method B', function () {
+  // Roda uma vez depois do block
+  after(function () {
+    console.log('after')
+  })
 
+  // Roda todas as vezes, antes de CADA bloco.
+  beforeEach(function () {
+    console.log('before each')
+  })
+
+  // Roda todas a vezes, depois de CADA bloco
+  afterEach(function () {
+    console.log('after each')
+  })
+
+  it('test 1', function () {
+    console.log('test 1')
+  })
+
+  it('test 2', function () {
+    console.log('test 2')
   })
 })
