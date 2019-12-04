@@ -1,47 +1,65 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable no-undef */
 const expect = require('chai').expect
+const calc = require('../src/main')
 
-describe('Main', function () {
-  var arr
-  // Hooks
-  // Before roda apenas uma vez antes do bloco
-  before(function () {
-    // Exemplo de uso: Inicia uma conexão com o banco de dados
+describe('Calc', () => {
+  // smoke tests
+  describe('smoke tests', () => {
+    it('should exist the "calc" lib', () => {
+      expect(calc).to.exist
+    })
+
+    it('should exist the method "sum"', () => {
+      expect(calc.sum).to.exist
+      expect(calc.sum).to.be.a('function')
+    })
+
+    it('should exist the method "sub"', () => {
+      expect(calc.sub).to.exist
+      expect(calc.sub).to.be.a('function')
+    })
+
+    it('should exist the method "div"', () => {
+      expect(calc.div).to.exist
+      expect(calc.div).to.be.a('function')
+    })
+
+    it('should exist the method "mul"', () => {
+      expect(calc.mul).to.exist
+      expect(calc.mul).to.be.a('function')
+    })
   })
 
-  // Roda uma vez depois do block
-  after(function () {
-    // Exemplo de uso: Fecha a conexão com o banco de dados
+  describe('Sum', () => {
+    it('should return 4 if sum(2,2)', () => {
+      expect(calc.sum(2, 2)).to.be.equal(4)
+    })
   })
 
-  // Roda todas as vezes, antes de CADA bloco.
-  beforeEach(function () {
-    arr = [1, 2, 3]
+  describe('Sub', () => {
+    it('should return 4 if sub(6,2)', () => {
+      expect(calc.sub(6, 2)).to.be.equal(4)
+    })
+
+    it('should return -4 if sub(6,10)', () => {
+      expect(calc.sub(6, 10)).to.be.equal(-4)
+    })
   })
 
-  // Roda todas a vezes, depois de CADA bloco
-  afterEach(function () {
+  describe('Div', () => {
+    it('should return 4 if div(8,2)', () => {
+      expect(calc.div(8, 2)).to.be.equal(4)
+    })
 
+    it('should return "Não é possível dividir por zero!" when divide by 0', () => {
+      expect(calc.div(4, 0)).to.be.equal('Não é possível dividir por zero!')
+    })
   })
 
-  // Também funciona com arrow functions
-  // Smoke test => Teste mais básico, para verificar se algo existe ou se é de algum tipo esperado. Geralmente expect.to.be.a
-  it('should be an array', () => {
-    expect(arr).to.be.an('array')
-  })
-
-  it('should have a size of 4 when push another value to the array', function () {
-    arr.push(4)
-    expect(arr).to.have.lengthOf(4)
-  })
-
-  it('should have a size of 2 when pop a value from the array', function () {
-    arr.pop()
-    expect(arr).to.have.lengthOf(2)
-  })
-
-  it('should remove the value 3 when use pop in the array', function () {
-    arr.pop()
-    expect(arr).to.not.include(3)
+  describe('Mul', () => {
+    it('should return 8 if mul(4,2)', () => {
+      expect(calc.mul(4, 2)).to.be.equal(8)
+    })
   })
 })
